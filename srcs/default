@@ -1,24 +1,47 @@
 server {
 	listen 80;
 	listen [::]:80 default_server;
+	server_name localhost;
+
+
+
+	
+#
+	#return 301 https://$host$request_uri;
+#
 
 	# include snippets/snakeoil.conf;
+}
 
 
-	listen 443 ssl;
+server {
+
+	listen 443 ssl default_server;
 	listen [::]:443 ssl default_server;
-	
-	ssl_certificate /etc/nginx/ssl/localhost.pem;
-	ssl_certificate_key /etc/nginx/ssl/localhost-key.pem;
+#	
+	ssl on
+#	
+
+
+	ssl_certificate /etc/nginx/ssl/certificate.localhost.crt;
+	ssl_certificate_key /etc/nginx/ssl/localhost.key;
+
+
+#	ssl_certificate /etc/nginx/ssl/localhost.pem;
+#	ssl_certificate_key /etc/nginx/ssl/localhost-key.pem;
 
 	#ssl_certificate /root/mkcert/localhost.pem;
 	#ssl_certificate_key /root/mkcert/localhost.key;
 	
 	
 	root /var/www/localhost;
+
+#
+#	root/ft_server/;
+#
+
+
 	#root /var/www/html;
-
-
 	# Add index.php to the list if you are using PHP
 	index index.php index.html index.htm index.nginx-debian.html;
 
@@ -41,6 +64,7 @@ server {
 	location ~ \.php$ {
 		include snippets/fastcgi-php.conf;
 	
+
 		fastcgi_pass unix:/run/php/php7.3-fpm.sock;
 	#	# With php-cgi (or other tcp sockets):
 	#	fastcgi_pass 127.0.0.1:9000;
