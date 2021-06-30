@@ -7,15 +7,15 @@
 /** The name of the database for WordPress */
 define( 'DB_NAME', 'wordpress' );
 /** MySQL database username */
-define( 'DB_USER', 'wordpress_user' );
+define( 'DB_USER', 'wpuser' );
 /** MySQL database password */
-define( 'DB_PASSWORD', '' );
+define( 'DB_PASSWORD', 'wpuser' );
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost' )
 
 
-
-define( 'DB_CHARSET', 'utf8' );
+/**utf8mb4 permet de stocker plus de symboles que utf8 classique*/
+define( 'DB_CHARSET', 'utf8mb4' );
 define( 'DB_COLLATE', '' );
 
 
@@ -33,8 +33,8 @@ $table_prefix = 'wp_';
 define( 'WP_DEBUG', false );
 
 
-  if ( ! defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) )
 	define( 'ABSPATH', __DIR__ . '/' );
-}
-require_once ABSPATH . 'wp-settings.php';
+
+require_once(ABSPATH . 'wp-settings.php');
   
