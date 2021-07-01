@@ -8,6 +8,7 @@ openssl req -nodes -x509 -newkey  rsa:2048 -days 365 -subj "/C=FR/ST=IDF/L=Paris
 
 mv ./default etc/nginx/sites-available
 
+service php7.3-fpm start
 
 
 
