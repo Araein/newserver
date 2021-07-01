@@ -22,11 +22,32 @@ service mysql start
 
 #MARIADB
 echo "CREATE DATABASE IF NOT EXISTS wordpress;" | mysql -u root --skip-password
-echo "GRANT ALL ON wordpress.* TO 'wordpress_user'@'localhost';" | mysql -u root --skip-password
+echo "GRANT ALL ON wordpress.* TO 'wpuser'@'localhost';" | mysql -u root --skip-password
 echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
-echo "update mysql.user set plugin = 'mysql_native_password' where user='wordpress_user';" | mysql -u root
+echo "update mysql.user set plugin = 'mysql_native_password' where user='wpuser';" | mysql -u root
 
 
+#myphpadmin 
+
+wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-english.tar.gz
+    tar -xzvf phpMyAdmin-5.0.2-english.tar.gz
+    mv -f phpMyAdmin-5.0.2-english/ /var/www/localhost/phpmyadmin
+    rm -rf phpMyAdmin-5.0.2-english.tar.gz
+mv -f config.inc.php /var/www/localhost/phpmyadmin
+
+#wordpress 
+
+
+wget https://wordpress.org/latest.tar.gz
+tar -xzvf latest.tar.gz
+    mv wordpress/ /var/www/localhost/
+    rm -rf latest.tar.gz
+mv -f wp-config.php /var/www/localhost/wordpress
+
+
+#chmod 660 /var/www/localhost/phpmyadmin/config.inc.php
+chown -R www-data:www-data /var/www/localhost/*
+chmod -R 755 /var/www/*
 
 
 service mysql restart
