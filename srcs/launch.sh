@@ -17,14 +17,9 @@ chmod -R 755 /var/www/*
 service mysql start
 
 #MARIADB
-echo "CREATE DATABASE IF NOT EXISTS wordpress;"  | mysql -u root --skip-password
-#echo "CREATE USER 'wpuser'@'localhost' IDENTIFIED BY 'wpuser';"
-#echo "GRANT ALL PRIVILEGES ON *.* TO 'wpuser'@'localhost';"
-#echo "FLUSH PRIVILEGES;"
-echo "GRANT ALL ON wordpress.* TO 'wpuser'@'localhost' IDENTIFIED BY 'wpuser';" | mysql -u root --skip-password
-echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
-#echo "update mysql.user set plugin = 'mysql_native_password' where user='wpuser';" | mysql -u root
-
+echo "CREATE DATABASE IF NOT EXISTS wordpress;"  | mysql -u root
+echo "GRANT ALL PRIVILEGES ON *.* TO 'wpuser'@'localhost' IDENTIFIED BY 'wpuser';" | mysql -u root
+echo "FLUSH PRIVILEGES;" | mysql -u root
 
 
 
@@ -36,9 +31,10 @@ wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-english.tar.
     rm -rf phpMyAdmin-5.0.2-english.tar.gz
 mv -f config.inc.php /var/www/localhost/phpmyadmin
 
-chmod 660 /var/www/localhost/phpmyadmin/config.inc.php
-chown -R www-data:www-data /var/www/localhost/phpmyadmin
-service php7.3-fpm start
+chown -R www-data /var/www/*
+chmod -R 755 /var/www/*
+
+#service php7.3-fpm start
 echo "GRANT ALL ON *.* TO 'wpuser'@'localhost' IDENTIFIED BY '123'" | mysql -u root
 echo "FLUSH PRIVILEGES;" | mysql -u root
 #wordpress 
@@ -59,7 +55,8 @@ tar xvf latest.tar.gz
 rm -rf latest.tar.gz
 mv -f wordpress/ /var/www/localhost/wordpress
 mv ./wp-config.php /var/www/localhost/wordpress
-
+chown -R www-data /var/www/*
+chmod -R 755 /var/www/*
 #chmod 660 /var/www/localhost/phpmyadmin/config.inc.php
 #chown -R www-data:www-data /var/www/localhost/*
 #chmod -R 755 /var/www/*
@@ -69,6 +66,6 @@ mv ./wp-config.php /var/www/localhost/wordpress
 #chmod -R 755 /var/www/localhost/phpmyadmin
 
 service mysql restart
-service php7.3-fpm restart
+service php7.3-fpm start
 service nginx restart
 sleep infinity
