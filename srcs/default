@@ -19,7 +19,7 @@ server {
 	listen 443 ssl default_server;
 	listen [::]:443 ssl default_server;
 #	
-	ssl on
+	ssl on;
 #	
 
 
