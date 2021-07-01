@@ -42,12 +42,14 @@ mv -f config.inc.php /var/www/localhost/phpmyadmin
 
 #wordpress 
 
-
+curl -LO https://wordpress.org/latest.tar.gz
+tar xzvf latest.tar.gz
 #wget https://wordpress.org/latest.tar.gz
 #tar -xzvf latest.tar.gz
-#    mv wordpress/ /var/www/localhost/
+mv wordpress/ /var/www/localhost/
+chown -R www-data:www-data /var/www/your_domain
 #    rm -rf latest.tar.gz
-#mv -f wp-config.php /var/www/localhost/wordpress
+mv -f wp-config.php /var/www/localhost/wordpress
 
 
 #chmod 660 /var/www/localhost/phpmyadmin/config.inc.php
