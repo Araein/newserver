@@ -30,7 +30,7 @@ $cfg['Servers'][$i]['auth_type'] = 'cookie';
 /* Server parameters */
 $cfg['Servers'][$i]['host'] = 'localhost';
 $cfg['Servers'][$i]['compress'] = false;
-$cfg['Servers'][$i]['AllowNoPassword'] = false;   /*true or false ??*/
+$cfg['Servers'][$i]['AllowNoPassword'] = true;   /*true or false ??*/
 
 /**
  * phpMyAdmin configuration storage settings.
@@ -48,7 +48,7 @@ $cfg['Servers'][$i]['AllowNoPassword'] = false;   /*true or false ??*/
 
 //PEUT ETRE A NE PAS COMMENT
  $cfg['Servers'][$i]['controluser'] = 'root';
- $cfg['Servers'][$i]['controlpass'] = '';
+ $cfg['Servers'][$i]['controlpass'] = 'root';
 
 
 
