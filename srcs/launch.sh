@@ -56,6 +56,6 @@ mv -f config.inc.php /var/www/localhost/phpmyadmin
 
 
 service mysql restart
-service php7.3-fpm restart
+service php7.3-fpm start
 service nginx restart
 sleep infinity
