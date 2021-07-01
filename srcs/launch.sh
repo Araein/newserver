@@ -35,7 +35,7 @@ chown -R www-data /var/www/*
 chmod -R 755 /var/www/*
 
 #service php7.3-fpm start
-echo "GRANT ALL ON *.* TO 'wpuser'@'localhost' IDENTIFIED BY 'wpuser'" | mysql -u root
+echo "GRANT ALL PRIVILEGES ON *.* TO 'wpuser'@'localhost' IDENTIFIED BY 'wpuser'" | mysql -u root
 echo "FLUSH PRIVILEGES;" | mysql -u root
 #wordpress 
 
