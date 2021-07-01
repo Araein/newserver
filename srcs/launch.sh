@@ -55,14 +55,16 @@ mv -f config.inc.php /var/www/localhost/phpmyadmin
 
 wget https://wordpress.org/latest.tar.gz
 tar xvf latest.tar.gz
-mkdir var/www/localhost/wordpress
-cp -a wordpress/. /var/www/localhost/wordpress
+    mv -f wordpress/ /var/www/localhost/wordpress
 mv ./wp-config.php /var/www/localhost/wordpress
 
 #chmod 660 /var/www/localhost/phpmyadmin/config.inc.php
 #chown -R www-data:www-data /var/www/localhost/*
 #chmod -R 755 /var/www/*
 
+chown -R www-data:www-data /var/www/localhost && \
+		chmod -R 755 /var/www/localhost/wordpress && \
+		chmod -R 755 /var/www/localhost/phpmyadmin
 
 service mysql restart
 service php7.3-fpm start
