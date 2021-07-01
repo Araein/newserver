@@ -22,8 +22,8 @@ service mysql start
 
 #MARIADB
 echo "CREATE DATABASE IF NOT EXISTS wordpress;" # | mysql -u root --skip-password
-echo "CREATE USER 'wpadmin'@'localhost' IDENTIFIED BY 'wpadmin';"
-echo "GRANT ALL PRIVILEGES ON *.* TO 'wpadmin'@'localhost';"
+echo "CREATE USER 'wpuser'@'localhost' IDENTIFIED BY 'wpuser';"
+echo "GRANT ALL PRIVILEGES ON *.* TO 'wpuser'@'localhost';"
 echo "FLUSH PRIVILEGES;"
 
 
