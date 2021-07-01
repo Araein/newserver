@@ -16,10 +16,6 @@ chmod -R 755 /var/www/*
 
 service mysql start
 
-#MARIADB
-
-
-
 
 #myphpadmin 
 
@@ -38,38 +34,23 @@ chmod -R 755 /var/www/*
 #echo "GRANT ALL PRIVILEGES ON *.* TO 'wpuser'@'localhost' IDENTIFIED BY 'wpuser'" | mysql -u root
 #echo "FLUSH PRIVILEGES;" | mysql -u root
 
-
-
-
 #wordpress 
 echo "CREATE DATABASE IF NOT EXISTS wordpress;"  | mysql -u root
 echo "GRANT ALL PRIVILEGES ON *.* TO 'wpuser'@'localhost' IDENTIFIED BY 'wpuser';" | mysql -u root
 echo "FLUSH PRIVILEGES;" | mysql -u root
-#wget https://wordpress.org/latest.tar.gz
-#tar xzvf latest.tar.gz
-#wget https://wordpress.org/latest.tar.gz
-#tar -xzvf latest.tar.gz
-#mkdir var/www/localhost/wordpress
-#mv wordpress/ /var/www/localhost/wordpress
-#chown -R www-data:www-data /var/www/*
-#chmod -R 755 /var/www/*
-#    rm -rf latest.tar.gz
-#mv -f wp-config.php /var/www/localhost/wordpress
+
 
 wget https://wordpress.org/latest.tar.gz
-tar xvf latest.tar.gz
-rm -rf latest.tar.gz
+tar -xzvf latest.tar.gz
 mv -f wordpress/ /var/www/localhost/wordpress
-mv -f ./wp-config.php /var/www/localhost/wordpress
+rm -rf latest.tar.gz
+mv -f wp-config.php /var/www/localhost/wordpress
+
 chown -R www-data /var/www/*
 chmod -R 755 /var/www/*
 #chmod 660 /var/www/localhost/phpmyadmin/config.inc.php
 #chown -R www-data:www-data /var/www/localhost/*
 #chmod -R 755 /var/www/*
-
-
-#chmod -R 755 /var/www/localhost/wordpress
-#chmod -R 755 /var/www/localhost/phpmyadmin
 
 service mysql restart
 service php7.3-fpm start
