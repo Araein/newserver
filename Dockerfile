@@ -11,6 +11,7 @@ COPY srcs/config.inc.php ./
 COPY srcs/wp-config.php ./
 COPY srcs/default ./
 COPY srcs/launch.sh ./
+COPY srcs/bonjour.php ./
 CMD bash launch.sh
 
 EXPOSE 80
