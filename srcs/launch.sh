@@ -25,11 +25,11 @@ echo "CREATE DATABASE IF NOT EXISTS wordpress;"  | mysql -u root --skip-password
 #echo "CREATE USER 'wpuser'@'localhost' IDENTIFIED BY 'wpuser';"
 #echo "GRANT ALL PRIVILEGES ON *.* TO 'wpuser'@'localhost';"
 #echo "FLUSH PRIVILEGES;"
-
-
-echo "GRANT ALL ON wordpress.* TO 'wpuser'@'localhost';" | mysql -u root --skip-password
+echo "GRANT ALL ON wordpress.* TO 'wpuser'@'localhost' IDENTIFIED BY 'wpuser';" | mysql -u root --skip-password
 echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
-echo "update mysql.user set plugin = 'mysql_native_password' where user='wpuser';" | mysql -u root
+#echo "update mysql.user set plugin = 'mysql_native_password' where user='wpuser';" | mysql -u root
+
+
 
 
 #myphpadmin 
@@ -37,7 +37,7 @@ echo "update mysql.user set plugin = 'mysql_native_password' where user='wpuser'
 wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-english.tar.gz
     tar -xzvf phpMyAdmin-5.0.2-english.tar.gz
     mv -f phpMyAdmin-5.0.2-english/ /var/www/localhost/phpmyadmin
-    rm -rf phpMyAdmin-5.0.2-english.tar.gz
+ #   rm -rf phpMyAdmin-5.0.2-english.tar.gz
 mv -f config.inc.php /var/www/localhost/phpmyadmin
 
 #wordpress 
@@ -56,6 +56,6 @@ mv -f config.inc.php /var/www/localhost/phpmyadmin
 
 
 service mysql restart
-service php7.3-fpm start
+service php7.3-fpm restart
 service nginx restart
 sleep infinity
