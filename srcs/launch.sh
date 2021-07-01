@@ -42,7 +42,7 @@ mv -f config.inc.php /var/www/localhost/phpmyadmin
 
 #wordpress 
 
-curl -LO https://wordpress.org/latest.tar.gz
+wget https://wordpress.org/latest.tar.gz
 tar xzvf latest.tar.gz
 #wget https://wordpress.org/latest.tar.gz
 #tar -xzvf latest.tar.gz
