@@ -36,6 +36,11 @@ wget https://files.phpmyadmin.net/phpMyAdmin/5.0.2/phpMyAdmin-5.0.2-english.tar.
     rm -rf phpMyAdmin-5.0.2-english.tar.gz
 mv -f config.inc.php /var/www/localhost/phpmyadmin
 
+chmod 660 /var/www/localhost/phpmyadmin/config.inc.php
+chown -R www-data:www-data /var/www/localhost/phpmyadmin
+service php7.3-fpm start
+echo "GRANT ALL ON *.* TO 'wpuser'@'localhost' IDENTIFIED BY '123'" | mysql -u root
+echo "FLUSH PRIVILEGES;" | mysql -u root
 #wordpress 
 
 #wget https://wordpress.org/latest.tar.gz
@@ -64,6 +69,6 @@ mv ./wp-config.php /var/www/localhost/wordpress
 #chmod -R 755 /var/www/localhost/phpmyadmin
 
 service mysql restart
-service php7.3-fpm start
+service php7.3-fpm restart
 service nginx restart
 sleep infinity
