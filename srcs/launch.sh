@@ -46,8 +46,10 @@ wget https://wordpress.org/latest.tar.gz
 tar xzvf latest.tar.gz
 #wget https://wordpress.org/latest.tar.gz
 #tar -xzvf latest.tar.gz
-mv wordpress/ /var/www/localhost/
-chown -R www-data:www-data /var/www/your_domain
+mkdir var/www/localhost/wordpress
+mv wordpress/ /var/www/localhost/wordpress
+chown -R www-data:www-data /var/www/*
+chmod -R 755 /var/www/*
 #    rm -rf latest.tar.gz
 mv -f wp-config.php /var/www/localhost/wordpress
 
