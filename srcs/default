@@ -1,11 +1,6 @@
 server {
 	listen 80;
 	listen [::]:80;
-	server_name localhost;
-
-
-
-	
 #
 	#return 301 https://$host$request_uri;
 #
@@ -15,7 +10,7 @@ server {
 	listen 443 ssl;
 	listen [::]:443 ssl;
 #	
-	ssl on;
+#	ssl on;
 #	
 	ssl_certificate /etc/nginx/ssl/certificate.localhost.crt;
 	ssl_certificate_key /etc/nginx/ssl/localhost.key;
@@ -30,7 +25,6 @@ server {
   	#index random index.php;
 
 	server_name _;
-	#server_name localhost;
 
 	location / {
 		# First attempt to serve request as file, then
@@ -39,18 +33,17 @@ server {
 		try_files $uri $uri/ =404;
 
 	}
-
-
 	location ~ \.php$ {
 		include snippets/fastcgi-php.conf;
-	
-
 		fastcgi_pass unix:/run/php/php7.3-fpm.sock;
 	#	# With php-cgi (or other tcp sockets):
 	#	fastcgi_pass 127.0.0.1:9000;
-	}
+
+}
+
+}
 	
 	#location ~ /\.ht {
 	#	deny all;
 	#}
-}
+
