@@ -32,9 +32,9 @@ $table_prefix = 'wp_';
 
 define( 'WP_DEBUG', false );
 
-
-if ( !defined( 'ABSPATH' ) )
+if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', __DIR__ . '/' );
+}
 
-require_once(ABSPATH . 'wp-settings.php');
+require_once ABSPATH . 'wp-settings.php';
   
