@@ -21,10 +21,15 @@ chmod -R 755 /var/www/*
 service mysql start
 
 #MARIADB
-echo "CREATE DATABASE IF NOT EXISTS wordpress;" | mysql -u root --skip-password
-echo "GRANT ALL ON wordpress.* TO 'wpuser'@'localhost';" | mysql -u root --skip-password
-echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
-echo "update mysql.user set plugin = 'mysql_native_password' where user='wpuser';" | mysql -u root
+echo "CREATE DATABASE IF NOT EXISTS wordpress;" # | mysql -u root --skip-password
+echo "CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';"
+echo "GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost';"
+echo "FLUSH PRIVILEGES;"
+
+
+#echo "GRANT ALL ON wordpress.* TO 'wpuser'@'localhost';" # | mysql -u root --skip-password
+#echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
+#echo "update mysql.user set plugin = 'mysql_native_password' where user='wpuser';" | mysql -u root
 
 
 #myphpadmin 
