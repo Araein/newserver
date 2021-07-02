@@ -11,10 +11,9 @@ define( 'DB_USER', 'root' );
 /** MySQL database password */
 define( 'DB_PASSWORD', '' );
 /** MySQL hostname */
-define( 'DB_HOST', 'localhost' )
+define( 'DB_HOST', 'localhost' );
 
 
-/**utf8mb4 permet de stocker plus de symboles que utf8 classique*/
 define( 'DB_CHARSET', 'utf8mb4' );
 define( 'DB_COLLATE', '' );
 
