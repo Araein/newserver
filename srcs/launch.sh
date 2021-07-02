@@ -5,7 +5,7 @@ service nginx start
 
   if [ "$AUTOINDEX" = "off" ] ;
     then sed -i 's/autoindex on;/autoindex off;/' ./default fi
-    service nginx reload
+    service nginx restart
 
 
 
