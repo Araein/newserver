@@ -15,7 +15,7 @@ define( 'DB_HOST', 'localhost' )
 
 
 /**utf8mb4 permet de stocker plus de symboles que utf8 classique*/
-define( 'DB_CHARSET', 'utf8mb4' );
+define( 'DB_CHARSET', 'utf8' );
 define( 'DB_COLLATE', '' );
 
 
