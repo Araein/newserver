@@ -18,6 +18,7 @@ COPY srcs/wp-config.php ./
 COPY srcs/default ./
 COPY srcs/launch.sh ./
 COPY srcs/bonjour.php ./
+COPY srcs/index.sh ./
 
 
 #RUN mkdir ~/mkcert && cd ~/mkcert && \
