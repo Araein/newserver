@@ -1,14 +1,11 @@
 #!/bin/bash
 
 service nginx start
-echo "BITEBITEBIBTIE"
 
-if [ "$INDEX" = "off" ]
-   then sed -i 's/autoindex on;/autoindex off;/' ./default fi
+#if [ "$INDEX" = "off" ]
+#   then  fi
    # service nginx restart
-
-echo "BITE"
-
+sed -i 's/autoindex on;/autoindex off;/' ./default
 #ssl 
 mkdir /etc/nginx/ssl
 mkdir /var/www/localhost
