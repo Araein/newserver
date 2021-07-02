@@ -3,9 +3,9 @@
 service nginx start
 
 
-  if [ "$INDEX" = "off" ] ;
-    then sed -i 's/autoindex on;/autoindex off;/' ./default fi
-    service nginx restart
+#  if [ "$INDEX" = "off" ] ;
+#    then sed -i 's/autoindex on;/autoindex off;/' ./default fi
+   # service nginx restart
 
 
 
