@@ -15,8 +15,6 @@ ln -s etc/nginx/sites-available/default etc/nginx/sites-enabled
 chown -R www-data /var/www/*
 chmod -R 755 /var/www/*
 
-service mysql start
-
 
 #myphpadmin 
 
@@ -42,10 +40,14 @@ mv -f wp-config.php /var/www/localhost/wordpress
 #echo "FLUSH PRIVILEGES;" | mysql -u root
 
 #wordpress 
-echo "CREATE DATABASE IF NOT EXISTS wordpress;"  | mysql -u root
-echo "GRANT ALL PRIVILEGES ON *.* TO 'wpuser'@'localhost' IDENTIFIED BY 'wpuser';" | mysql -u root
-echo "FLUSH PRIVILEGES;" | mysql -u root
-
+#echo "CREATE DATABASE IF NOT EXISTS wordpress;"  | mysql -u root
+#echo "GRANT ALL PRIVILEGES ON *.* TO 'wpuser'@'localhost' IDENTIFIED BY 'wpuser';" | mysql -u root
+#echo "FLUSH PRIVILEGES;" | mysql -u root
+service mysql start
+echo "CREATE DATABASE IF NOT EXISTS wordpress;" | mysql -u root --skip-password
+echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'localhost';" | mysql -u root --skip-password
+echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
+echo "update mysql.user set plugin = 'mysql_native_password' where user='root';" | mysql -u root
 
 
 
@@ -55,7 +57,6 @@ chmod -R 755 /var/www/*
 #chown -R www-data:www-data /var/www/localhost/*
 #chmod -R 755 /var/www/*
 
-service mysql restart
 service php7.3-fpm start
 service nginx restart
 sleep infinity
