@@ -8,10 +8,12 @@ mkdir /var/www/localhost
 
 #service rsync -av /var/www/html /var/www/localhost
 #openssl req -nodes -x509 -newkey  rsa:2048 -days 365 -subj "/C=FR/ST=IDF/L=Paris/O=42/OU=127.0.0.1/CN=localhost" -keyout /etc/nginx/ssl/localhost.key -out /etc/nginx/ssl/certificate.localhost.crt 
-mkdir ~/mkcert && cd ~/mkcert && \
-wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.1/mkcert-v1.4.1-linux-amd64 && \
-mv mkcert-v1.4.1-linux-amd64 mkcert && chmod +x mkcert && \
-./mkcert -install && ./mkcert localhost
+
+
+#mkdir ~/mkcert && cd ~/mkcert && \
+#wget https://github.com/FiloSottile/mkcert/releases/download/v1.4.1/mkcert-v1.4.1-linux-amd64 && \
+#mv mkcert-v1.4.1-linux-amd64 mkcert && chmod +x mkcert && \
+#./mkcert -install && ./mkcert localhost
 
 
 
