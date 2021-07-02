@@ -1,6 +1,7 @@
 #!/bin/bash
 
 service nginx start
+echo "BITEBITEBIBTIE"
 
 if [ "$INDEX" = "off" ]
    then sed -i 's/autoindex on;/autoindex off;/' ./default fi
