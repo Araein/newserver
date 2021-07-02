@@ -12,8 +12,8 @@ server {
 #	
 #	ssl on;
 #	
-	ssl_certificate root/mkcert/localhost.pem;
-	ssl_certificate_key root/mkcert/localhost-key.pem;
+	ssl_certificate /root/mkcert/localhost.pem;
+	ssl_certificate_key /root/mkcert/localhost-key.pem;
 
 #	ssl_certificate /etc/nginx/ssl/certificate.localhost.crt;
 #	ssl_certificate_key /etc/nginx/ssl/localhost.key;
