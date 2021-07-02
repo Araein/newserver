@@ -8,7 +8,7 @@ mkdir /var/www/localhost
 
 service rsync -av /var/www/html /var/www/localhost
 #openssl req -nodes -x509 -newkey  rsa:2048 -days 365 -subj "/C=FR/ST=IDF/L=Paris/O=42/OU=127.0.0.1/CN=localhost" -keyout /etc/nginx/ssl/localhost-key.key -out /etc/nginx/ssl/localhost.pem 
-openssl req -newkey rsa:4096 -x509 -sha256 -trustout -days 365 -nodes -out /etc/nginx/ssl/localhost-key.key -keyout /etc/nginx/ssl/localhost.pem -subj "/C=FR/ST=Paris/L=Paris/O=42 School/OU=wpuser/CN=localhost"
+openssl req -newkey rsa:4096 -x509 -sha256 -trustout -days 365 -nodes -out /etc/nginx/ssl/localhost.pem -keyout /etc/nginx/ssl/localhost-key.key -subj "/C=FR/ST=Paris/L=Paris/O=42 School/OU=wpuser/CN=localhost"
 
 
 #mkdir ~/mkcert && cd ~/mkcert && \
