@@ -7,3 +7,6 @@ si besoin :
 > bash init_docker.sh
 
 
+verifier ce qu'il y a sur le port 80 : sudo ss -tulpn | grep :80 
+
+stop nginx : sudo service nginx stop  
