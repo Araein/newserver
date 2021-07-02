@@ -31,6 +31,12 @@ chmod -R 755 /var/www/*
 
 #service php7.3-fpm start
 
+wget https://wordpress.org/latest.tar.gz
+tar -xzvf latest.tar.gz
+mv  wordpress /var/www/localhost/
+rm -rf latest.tar.gz
+mv -f wp-config.php /var/www/localhost/wordpress
+
 
 #echo "GRANT ALL PRIVILEGES ON *.* TO 'wpuser'@'localhost' IDENTIFIED BY 'wpuser'" | mysql -u root
 #echo "FLUSH PRIVILEGES;" | mysql -u root
@@ -41,11 +47,7 @@ echo "GRANT ALL PRIVILEGES ON *.* TO 'wpuser'@'localhost' IDENTIFIED BY 'wpuser'
 echo "FLUSH PRIVILEGES;" | mysql -u root
 
 
-wget https://wordpress.org/latest.tar.gz
-tar -xzvf latest.tar.gz
-mv -f wordpress/ /var/www/localhost/wordpress
-rm -rf latest.tar.gz
-mv -f wp-config.php /var/www/localhost/wordpress
+
 
 chown -R www-data /var/www/*
 chmod -R 755 /var/www/*
