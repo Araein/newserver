@@ -5,7 +5,20 @@ service nginx start
 #if [ "$INDEX" = "off" ]
 #   then  fi
    # service nginx restart
-sed -i 's/autoindex on;/autoindex off;/' ./default
+
+
+if (( $(ps -ef | grep -v grep | grep nginx | wc -l) > 0 ))
+then
+    if [ "$AUTOINDEX" = "off" ] ;
+    then sed -i 's/autoindex on;/autoindex off;/' ./default ;
+    else sed -i 's/autoindex off;/autoindex on;/' ./defaultt ; fi
+service nginx reload
+else
+    if [ "$AUTOINDEX" = "off" ] ;
+    then sed -i 's/autoindex on;/autoindex off;/' ./default ;
+    else sed -i 's/autoindex off;/autoindex on;/' ./default ; fi
+fi
+
 #ssl 
 mkdir /etc/nginx/ssl
 mkdir /var/www/localhost
