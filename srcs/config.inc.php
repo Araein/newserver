@@ -47,8 +47,8 @@ $cfg['Servers'][$i]['AllowNoPassword'] = true;   /*true or false ??*/
 
 
 //PEUT ETRE A NE PAS COMMENT
- $cfg['Servers'][$i]['controluser'] = 'root';
- $cfg['Servers'][$i]['controlpass'] = '';
+ //$cfg['Servers'][$i]['controluser'] = 'root';
+ //$cfg['Servers'][$i]['controlpass'] = '';
 
 
 
